@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<objectAnimator xmlns:app="http://schemas.android.com/apk/res/android"
+    app:duration="1000"
+    app:propertyName="scaleX"
+    app:valueFrom="1.0"
+    app:valueTo="2.0"
+    app:valueType="floatType">
+
+</objectAnimator>

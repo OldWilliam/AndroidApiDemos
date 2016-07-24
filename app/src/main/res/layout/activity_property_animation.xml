@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="me.wx.demo.apidemos.PropertyAnimationActivity">
+
+    <LinearLayout
+        android:id="@+id/layout_anim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/bt_scale_obj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="scale X" />
+
+        <Button
+            android:id="@+id/bt_translate_obj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="translation X" />
+
+        <Button
+            android:id="@+id/bt_rotate_obj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="rotate" />
+
+        <Button
+            android:id="@+id/bt_alpha_obj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="alpha" />
+
+        <Button
+            android:id="@+id/bt_pivot_obj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="pivotX" />
+
+        <Button
+            android:id="@+id/bt_x"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x" />
+
+        <Button
+            android:id="@+id/bt_property_values_holder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PropertyValuesHolder多个动画" />
+
+        <Button
+            android:id="@+id/bt_anim_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AnimatorSet多个动画" />
+
+        <Button
+            android:id="@+id/bt_load_anim_from_xml"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="加载xml" />
+
+        <Button
+            android:id="@+id/bt_self_animate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View自己的animate方法" />
+
+        <Button
+            android:id="@+id/custom_anim"
+            android:text="自定义动画"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/custom_3d_anim"
+            android:text="自定义3D动画"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</ScrollView>
+
