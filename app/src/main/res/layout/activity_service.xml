@@ -3,35 +3,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
-    tools:context="me.wx.demo.apidemos.ServiceActivity">
+    tools:context="me.wx.demo.apidemos.Service.ServiceActivity"
+    android:weightSum="1">
 
     <Button
+        android:id="@+id/start"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Start Servcice"
-        android:id="@+id/start" />
+        android:text="Start Servcice" />
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Stop Service"
         android:id="@+id/stop"
-        />
-
-    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="bind Service"
-        android:id="@+id/bind" />
+        android:text="Stop Service" />
 
     <Button
+        android:id="@+id/bind"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="unbind service"
-        android:id="@+id/unbind" />
+        android:text="bind Service" />
+
+    <Button
+        android:id="@+id/unbind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="unbind service" />
+
+    <Button
+        android:id="@+id/foreground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="foreground service" />
+
+    <Button
+        android:id="@+id/aidl"
+        android:text="aidl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/textView"
+        android:layout_weight="0.06" />
 </LinearLayout>

@@ -10,6 +10,7 @@ import android.widget.FrameLayout;
 
 /**
  * Created by ein on 2016/7/24.
+ *
  */
 public class DragViewGroup extends FrameLayout{
     private ViewDragHelper mViewDragHelper;
@@ -71,13 +72,14 @@ public class DragViewGroup extends FrameLayout{
         public int clampViewPositionVertical(View child, int top, int dy) {
             return 0;
         }
+
         //处理水平滑动
         @Override
         public int clampViewPositionHorizontal(View child, int left, int dx) {
             return left;
         }
-        //拖动结束后调用
 
+        //拖动结束后调用
         @Override
         public void onViewReleased(View releasedChild, float xvel, float yvel) {
             super.onViewReleased(releasedChild, xvel, yvel);

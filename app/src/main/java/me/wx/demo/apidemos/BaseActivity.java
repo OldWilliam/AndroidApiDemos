@@ -1,6 +1,7 @@
 package me.wx.demo.apidemos;
 
 import android.os.Bundle;
+import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatActivity;
 
 /**
@@ -16,4 +17,14 @@ public abstract class BaseActivity extends AppCompatActivity{
             getSupportActionBar().setTitle(title);
         }
     }
+
+    @Override
+    public void setContentView(@LayoutRes int layoutResID) {
+        super.setContentView(layoutResID);
+        initViews();
+        loadData();
+    }
+
+    protected abstract void initViews();
+    protected abstract void loadData();
 }

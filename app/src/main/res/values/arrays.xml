@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="main_item">
-        <item>Service</item>
-        <item>Notification</item>
-        <item>Draw</item>
-        <item>Animation</item>
-        <item>Scroll</item>
+        <item>服务</item>
+        <item>通知</item>
+        <item>动画</item>
+        <item>滑动实现方法</item>
+        <item>自定义View</item>
     </string-array>
 </resources>

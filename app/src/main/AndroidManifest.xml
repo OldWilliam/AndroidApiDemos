@@ -17,20 +17,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ServiceActivity" />
+        <activity android:name=".Service.ServiceActivity" />
+        <activity android:name=".Notification.NotificationActivity" />
+        <activity android:name=".Animation.AnimationActivity" />
+        <activity android:name=".ViewAnimationActivity" />
+        <activity android:name=".Animation.PropertyAnimationActivity" />
+        <activity android:name=".View.ScrollViewActivity" />
 
         <service
             android:name=".Service.StartedService"
             android:enabled="true"
             android:exported="true" />
+        <service
+            android:name=".Service.ForegroundService"
+            android:enabled="true"
+            android:exported="true" />
 
-        <activity android:name=".NotificationActivity" />
-        <activity android:name=".DrawActivity" />
-        <activity android:name=".AnimationActivity" />
-        <activity android:name=".ViewAnimationActivity" />
-        <activity android:name=".PropertyAnimationActivity" />
-        <activity android:name=".ScrollActivity" />
-        <activity android:name=".DrawerLayoutActivity"></activity>
+        <activity android:name=".View.CustomViewActivity"></activity>
     </application>
 
 </manifest>

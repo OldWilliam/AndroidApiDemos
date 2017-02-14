@@ -10,6 +10,15 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import me.wx.demo.apidemos.Animation.AnimationActivity;
+import me.wx.demo.apidemos.Notification.NotificationActivity;
+import me.wx.demo.apidemos.Service.ServiceActivity;
+import me.wx.demo.apidemos.View.CustomViewActivity;
+import me.wx.demo.apidemos.View.ScrollViewActivity;
+
+/**
+ * 主Activity，主界面
+ */
 public class MainActivity extends AppCompatActivity {
 
     private ListView listView;
@@ -22,13 +31,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        clss = new Class[]{ServiceActivity.class, NotificationActivity.class, DrawActivity.class,AnimationActivity.class,ScrollActivity.class};
+        clss = new Class[]{ServiceActivity.class, NotificationActivity.class, AnimationActivity.class,ScrollViewActivity.class, CustomViewActivity.class};
 
         listView = (ListView) findViewById(R.id.listView);
+        //首页列表展示数据在这里
         items = getResources().getStringArray(R.array.main_item);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items);
         listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new MyListener());
+        listView.setOnItemClickListener(new MainListener());
         //加入向上滑动，ActionBar隐藏
         actionBar = getSupportActionBar();
         View.OnTouchListener mTouchListener = new View.OnTouchListener() {
@@ -75,20 +85,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    class MyListener implements AdapterView.OnItemClickListener {
+    class MainListener implements AdapterView.OnItemClickListener {
 
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             Intent intent = new Intent(MainActivity.this, clss[position]);
             startActivity(intent);
         }
-    }
-
-    private void actionBarAnim(int flag) {
-
-    }
-
-    void Test() {
-
     }
 }
