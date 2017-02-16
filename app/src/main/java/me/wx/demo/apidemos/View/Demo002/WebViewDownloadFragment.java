@@ -36,12 +36,8 @@ public class WebViewDownloadFragment extends Fragment {
     public static final String TAG = WebViewDownloadFragment.class.getSimpleName();
 
     public static final String h5Url = "http://act.inke.cn/banner/201701/game.html";
-    public static final int NOTIFICATION_ID = 8848;
 
     private WebView mWebView;
-    private ProgressDialog mProDialog;
-
-    private NotificationUtil notificationUtil;
 
     public WebViewDownloadFragment() {
     }
@@ -62,7 +58,6 @@ public class WebViewDownloadFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        notificationUtil = new NotificationUtil(getContext().getApplicationContext());
         mWebView.loadUrl(h5Url);
     }
 
@@ -79,29 +74,9 @@ public class WebViewDownloadFragment extends Fragment {
         }
     }
 
-//    public class DownloadReceiver extends ResultReceiver {
-//
-//        /**
-//         * Create a new ResultReceive to receive results.  Your
-//         * {@link #onReceiveResult} method will be called from the thread running
-//         * <var>handler</var> if given, or from an arbitrary thread if null.
-//         *
-//         * @param handler
-//         */
-//        public DownloadReceiver(Handler handler) {
-//            super(handler);
-//        }
-//
-//        @Override
-//        protected void onReceiveResult(int resultCode, Bundle resultData) {
-//            super.onReceiveResult(resultCode, resultData);
-//            if (resultCode == DownloadService.UPDATE_PROGRESS) {
-//                int progress = resultData.getInt("progress");
-//                //TODO：更新UI进度操作
-//            }
-//        }
-//    }
-
+    /**
+     * >>>>>>>>>>>>>>>>>>>>>>>DownloadManager相关>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+     */
     /**
      * @param context used to check the device version and DownloadManager information
      * @return true if the download manager is available
@@ -125,8 +100,9 @@ public class WebViewDownloadFragment extends Fragment {
     private void dlByDownloadManager(String url) {
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
         request.setDescription("手游直播");
-        request.setTitle("映游");
+        request.setTitle("映客");
         request.setMimeType("application/vnd.android.package-archive");
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
 
         // in order for this if to run, you must use the android 3.2 to compile your app
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
@@ -138,4 +114,39 @@ public class WebViewDownloadFragment extends Fragment {
         DownloadManager manager = (DownloadManager) getActivity().getSystemService(Context.DOWNLOAD_SERVICE);
         manager.enqueue(request);
     }
+
+
+    /**
+     * <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+     */
+
+    /**
+     * 本来想用ResultReceiver来接收Service的更新，然后再去更新Notification
+     *
+     * 不用ResultReceiver来更新信息了，因为Service也可以创建Notification并更新。
+     *
+     * http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1125/2057.html
+     */
+//    public class DownloadReceiver extends ResultReceiver {
+//
+//        /**
+//         * Create a new ResultReceive to receive results.  Your
+//         * {@link #onReceiveResult} method will be called from the thread running
+//         * <var>handler</var> if given, or from an arbitrary thread if null.
+//         *
+//         * @param handler
+//         */
+//        public DownloadReceiver(Handler handler) {
+//            super(handler);
+//        }
+//
+//        @Override
+//        protected void onReceiveResult(int resultCode, Bundle resultData) {
+//            super.onReceiveResult(resultCode, resultData);
+//            if (resultCode == DownloadService.UPDATE_PROGRESS) {
+//                int progress = resultData.getInt("progress");
+//                //TODO：更新UI进度操作
+//            }
+//        }
+//    }
 }

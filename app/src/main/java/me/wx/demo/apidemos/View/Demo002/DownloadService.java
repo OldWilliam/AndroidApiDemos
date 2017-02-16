@@ -23,6 +23,8 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import me.wx.demo.apidemos.R;
@@ -74,9 +76,11 @@ public class DownloadService extends IntentService {
 
         notification = builder.build();
         notification.flags = Notification.FLAG_ONGOING_EVENT;
-        RemoteViews contentView = new RemoteViews(getPackageName(),R.layout.notification_content);
-        contentView.setTextViewText(R.id.notification_title,"映客直播");
+        RemoteViews contentView = new RemoteViews(getPackageName(), R.layout.notification_content);
+        contentView.setTextViewText(R.id.notification_title, "映客");
+        contentView.setTextViewText(R.id.notification_describe,"手游直播");
         contentView.setProgressBar(R.id.pBar, 100, 0, false);
+        contentView.setTextViewText(R.id.notification_progress, "0" + "%");
         notification.contentView = contentView;
 
         manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -136,7 +140,11 @@ public class DownloadService extends IntentService {
     private void publishProgress(int progress) {
         Log.d(TAG, "publishProgress: " + progress);
         notification.contentView.setProgressBar(R.id.pBar, 100, progress, false);
+        notification.contentView.setTextViewText(R.id.notification_progress, progress + "%");
         manager.notify(R.layout.notification_content, notification);
+        if (progress == 100) {
+            manager.cancel(R.layout.notification_content);
+        }
     }
 
     /**
